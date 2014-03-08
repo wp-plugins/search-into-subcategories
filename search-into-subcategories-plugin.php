@@ -1,10 +1,10 @@
 <?php
 /*
- Plugin Name: Bsearch-into-subcategories
-Plugin URI: http://wordpress.org/extend/plugins/ TODO
+Plugin Name: Search-into-subcategories
+Plugin URI: http://wordpress.org/plugins/search-into-subcategories/
 Description: search-into-subcategories
 Author: lion2486
-Version: 0.1
+Version: 0.1.1
 Author URI: http://codescar.eu
 Contributors: lion2486
 Tags: search, subcategories
@@ -44,8 +44,6 @@ class SIS{
 			'parent' => $parent_category,
 		) );
 		
-		$walker = new My_Walker_CategoryDropdown;
-		
 		$args = array(
 			'show_option_all'    => '',
 			'show_option_none'   => '',
@@ -65,7 +63,7 @@ class SIS{
 			'tab_index'          => 0,
 			'taxonomy'           => 'category',
 			'hide_if_empty'      => false,
-			'walker'             => $walker
+			'walker'             => new My_Walker_CategoryDropdown
 		); 
 
 		if(count($labels) >= 0)
@@ -80,38 +78,30 @@ class SIS{
 		}
 		
 		$text .= '	<script type="text/javascript">
-						var data = '. json_encode(SIS::$SIS_DATA) .';
-					
-						function LOAD_SIS_HANDLER(){';
-							for($i=0;$i<$max_depth;$i++){
-								$text .= 'add_SIS_level('. $i .');';
-							}
-						
-		$text .=		'}
+						var SIS_data = '. json_encode(SIS::$SIS_DATA) .';
+						var SIS_levels = '. $max_depth .';
 					</script>';
-					
+		
 		if( 1 == $search_input ){
 			if(count($labels) > $max_depth)
-				$text .= "<label for=\"level-$i\">{$labels[$max_depth]}: </label>";
+				$text .= "<label for=\"s\">{$labels[$max_depth]}: </label>";
 			$text .= '<input type="text" name="s" id="s" placeholder="Search..." /><br/>';
 		}
-			
+		
 		$text .= '<input type="hidden" name="cat" id="category" value="0" />';
 		$text .= '<input class="button button-primary" type="submit" value="'. $search_text .'" /><br/>';
 		$text .= '</form>';
 		
-		return $text;
-	}
-	function my_scripts() {
 		wp_enqueue_script(
 			'SIS_script',
 			plugins_url( '/script.js', __FILE__ ),
 			array( 'jquery' )
 		);
+
+		return $text;
 	}
 }
 add_shortcode( 'search-into-subcategories', array( 'SIS', 'SIS_shortcode' ) );
-add_action( 'wp_enqueue_scripts', array( 'SIS', 'my_scripts' ) );
 
 class My_Walker_CategoryDropdown extends Walker {
 	/**
@@ -164,9 +154,6 @@ class My_Walker_CategoryDropdown extends Walker {
 		}
 		
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		
-
-
 		//$output .= print_r($SELF::data, true);
 	}
 }
