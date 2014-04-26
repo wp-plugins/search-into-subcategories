@@ -8,7 +8,7 @@ Author URI: http://codescar.eu
 Contributors: lion2486
 Tags: search, subcategories 
 Requires at least: 3.0.1
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: 0.1.1
 Text Domain: search-into-subcategories
 License: GPLv2
