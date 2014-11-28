@@ -3,13 +3,13 @@ Plugin Name: search-into-subcategories
 Plugin URI: http://wordpress.org/plugins/search-into-subcategories/
 Description: search-into-subcategories
 Author: lion2486
-Version: 0.1.2
+Version: 0.1.3
 Author URI: http://codescar.eu 
 Contributors: lion2486
 Tags: search, subcategories 
 Requires at least: 3.0.1
 Tested up to: 4.0.1
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 Text Domain: search-into-subcategories
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -60,8 +60,11 @@ This section describes how to install the plugin and get it working.
 3. Add the shortcode into your page/post you want.
 
 == Changelog ==
+= 0.1.3 =
+* a fix for permalink structure
+
 = 0.1.2 = 
-*a small hotfix
+*a small hotfix for category listing
 
 = 0.1.1 =
 *Javascript file loading only when shortcode used
