@@ -4,7 +4,7 @@ Plugin Name: Search-into-subcategories
 Plugin URI: http://wordpress.org/plugins/search-into-subcategories/
 Description: search-into-subcategories Show category heritance with a simple shortcode. http://codescar.eu/projects/search-into-subcategories
 Author: lion2486
-Version: 0.1.1
+Version: 0.1.2
 Author URI: http://codescar.eu
 Contributors: lion2486
 Tags: search, subcategories
