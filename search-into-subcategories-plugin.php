@@ -4,7 +4,7 @@ Plugin Name: Search-into-subcategories
 Plugin URI: http://wordpress.org/plugins/search-into-subcategories/
 Description: search-into-subcategories Show category heritance with a simple shortcode. http://codescar.eu/projects/search-into-subcategories
 Author: lion2486
-Version: 0.1.3
+Version: 0.1.4
 Author URI: http://codescar.eu
 Contributors: lion2486
 Tags: search, subcategories
@@ -17,10 +17,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 class SIS{
 	public static $SIS_DATA;
-	
+	public static $DEBUG = "true";
+
 	public function SIS_shortcode( $atts ) {
 	
 		SIS::$SIS_DATA = array();
+
 	
 		$text = '<form action="'. site_url() .'" mathod="GET" name="SIS_form">';
 		
@@ -80,6 +82,7 @@ class SIS{
 		$text .= '	<script type="text/javascript">
 						var SIS_data = '. json_encode(SIS::$SIS_DATA) .';
 						var SIS_levels = '. $max_depth .';
+						var SIS_debug = ' . SIS::$DEBUG . ';
 					</script>';
 		
 		if( 1 == $search_input ){
