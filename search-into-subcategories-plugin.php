@@ -4,12 +4,12 @@ Plugin Name: Search-into-subcategories
 Plugin URI: http://wordpress.org/plugins/search-into-subcategories/
 Description: search-into-subcategories Show category heritance with a simple shortcode. http://codescar.eu/projects/search-into-subcategories
 Author: lion2486
-Version: 0.1.4
+Version: 0.1.5
 Author URI: http://codescar.eu
 Contributors: lion2486
 Tags: search, subcategories
 Requires at least: 3.0.1
-Tested up to: 4.0.1
+Tested up to: 4.2.1
 Text Domain: search-into-subcategories
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -143,9 +143,9 @@ class My_Walker_CategoryDropdown extends Walker {
 			$cat_name = apply_filters('list_cats', $category->name, $category);
 			if($depth != 0){
 				if( array_key_exists( $category->parent, SIS::$SIS_DATA ) && is_array( SIS::$SIS_DATA[$category->parent] ) )
-					SIS::$SIS_DATA[$category->parent] =  array_merge( SIS::$SIS_DATA[$category->parent], array($category->term_id => $cat_name) );
+					SIS::$SIS_DATA[$category->parent] =  array_merge( SIS::$SIS_DATA[$category->parent], array(print_r($category->term_id, true) => $cat_name) );
 				else
-					SIS::$SIS_DATA[$category->parent] = array($category->term_id => $cat_name) ;
+					SIS::$SIS_DATA[$category->parent] = array(print_r($category->term_id, true) => $cat_name) ;
 			}else{
 				$output .= "\t<option class=\"level-$depth\" value=\"".$category->term_id."\"";
 				if ( $category->term_id == $args['selected'] )

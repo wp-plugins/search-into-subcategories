@@ -3,13 +3,13 @@ Plugin Name: search-into-subcategories
 Plugin URI: http://wordpress.org/plugins/search-into-subcategories/
 Description: search-into-subcategories
 Author: lion2486
-Version: 0.1.4
+Version: 0.1.5
 Author URI: http://codescar.eu 
 Contributors: lion2486
 Tags: search, subcategories 
 Requires at least: 3.0.1
-Tested up to: 4.0.1
-Stable tag: 0.1.4
+Tested up to: 4.2.1
+Stable tag: trunk
 Text Domain: search-into-subcategories
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
